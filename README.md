@@ -1,10 +1,4 @@
-# W3HC Hardhat Template
-
-This Hardhat template includes: 
-
-- Typescript
-- Ethers v6
-- Open Zeppelin contracts
+# Forget about gas fees
 
 ## Install
 

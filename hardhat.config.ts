@@ -3,13 +3,16 @@ import "@nomicfoundation/hardhat-toolbox"
 import "@nomicfoundation/hardhat-verify"
 import * as dotenv from "dotenv"
 import "./tasks/mint"
-import "./tasks/send"
 dotenv.config()
 
 const {
   GOERLI_RPC_ENDPOINT_URL,
   GOERLI_PRIVATE_KEY,
-  ETHERSCAN_API_KEY
+  ETHERSCAN_API_KEY,
+
+  ARTHERA_TESTNET_ENDPOINT_URL,
+  ARTHERA_TESTNET_PRIVATE_KEY
+
 } = process.env
 
 const config: HardhatUserConfig = {
@@ -22,6 +25,11 @@ const config: HardhatUserConfig = {
     'goerli': {
       url: GOERLI_RPC_ENDPOINT_URL || "https://goerli.gateway.tenderly.co",
       accounts: GOERLI_PRIVATE_KEY !== undefined ? [GOERLI_PRIVATE_KEY] : [],
+    },
+    'arthera-testnet': {
+      url: ARTHERA_TESTNET_ENDPOINT_URL || "",
+      chainId: 10243,
+      accounts: ARTHERA_TESTNET_PRIVATE_KEY !== undefined ? [ARTHERA_TESTNET_PRIVATE_KEY] : [],
     }
   }, 
   solidity: {
